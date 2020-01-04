@@ -3,13 +3,14 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:61321/",
+      "applicationUrl": "http://localhost:61321/Blazor-Bootstrap-Demo/",
       "sslPort": 44317
     }
   },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
+      "commandLineArgs": "--contentroot=/Blazor-Bootstrap-Demo",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
