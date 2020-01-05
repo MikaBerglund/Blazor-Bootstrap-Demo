@@ -1,6 +1,20 @@
 ﻿
 
-<Navbar Id="main-menu" BrandText="Publishous.pro" BrandUrl="/Blazor-Bootstrap-Demo/" ColorScheme="NavbarColor.Dark" BackgroundColor="NamedColor.Primary" MarginBottom="Spacing.Four">
+<Nav ContentAlignment="NavContentAlignment.Right">
+    <NavItemLink Url="https://www.facebook.com/mikaberglund" OpenInNewTab="true"><img src="./img/facebook.svg" height="16" /></NavItemLink>
+    <NavItemLink Url="https://github.com/MikaBerglund" OpenInNewTab="true"><img src="./img/github.svg" height="16" /></NavItemLink>
+    <NavItemLink Url="https://www.linkedin.com/in/mikaberglund/" OpenInNewTab="true"><img src="./img/linkedin.svg" height="16" /></NavItemLink>
+    <NavItemLink Url="https://twitter.com/MikaBerglund" OpenInNewTab="true"><img src="./img/twitter.svg" height="16" /></NavItemLink>
+    <NavItemLink Url="https://www.youtube.com/channel/UCfOF1aIOdZskejallCfaqeg" OpenInNewTab="true"><img src="./img/youtube.svg" height="16" /></NavItemLink>
+    <NavItemLink Url="https://mikaberglund.com" OpenInNewTab="true"><img src="./img/blog.svg" height="16" /></NavItemLink>
+</Nav>
+<Navbar
+        BrandText="Publishous.pro" 
+        BrandUrl="/Blazor-Bootstrap-Demo/" 
+        ColorScheme="NavbarColor.Dark" 
+        BackgroundColor="NamedColor.Primary" 
+        ExpandAt="NavbarExpandBreakpoint.MD">
+
     <NavbarNav MarginLeft="Spacing.Auto">
         <NavItem Url="about" Text="About Us" />
         <NavItem Url="services" Text="Services" />
@@ -8,7 +22,7 @@
         <NavItem Url="team" Text="The Team" />
         <NavItem Url="contact" Text="Contact Us" />
         <DropdownNavItem Text="My Profile">
-            <DropdownItem Text="Log In" />
+            <DropdownItem Url="login" Text="Log In" />
         </DropdownNavItem>
     </NavbarNav>
 </Navbar>
