@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BlazorBootstrap.Components" Version="0.8.11-beta" />
+    <PackageReference Include="BlazorBootstrap.Components" Version="0.8.12-beta" />
+    <PackageReference Include="Blazored.SessionStorage" Version="1.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.1.0-preview4.19579.2" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.1.0-preview4.19579.2" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.HttpClient" Version="3.1.0-preview4.19579.2" />
@@ -15,6 +16,10 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Syndication\Syndication.csproj" />
   </ItemGroup>
 
   <Target Name="CustomActionsAfterPublish" AfterTargets="AfterPublish">
