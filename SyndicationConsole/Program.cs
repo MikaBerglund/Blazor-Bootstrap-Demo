@@ -1,4 +1,5 @@
-﻿using Syndication.Rss;
+﻿using Syndication;
+using Syndication.Rss;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -24,7 +25,12 @@ namespace SyndicationConsole
 
         static async Task MainAsync(string[] args)
         {
-            var items = await RssItem.LoadAsync("https://mikaberglund.com/feed/", 3, new HttpClient());
+            var rssUrl = "https://mikaberglund.com/feed/";
+            var atomUrl = "https://tulli.fi/tietoa-tullista/uutishuone/-/asset_publisher/vSckabkfdtUg/rss";
+
+            //var rssFeed = await Feed.LoadAsync(rssUrl);
+            var atomFeed = await Feed.LoadAsync(atomUrl);
+
         }
     }
 }

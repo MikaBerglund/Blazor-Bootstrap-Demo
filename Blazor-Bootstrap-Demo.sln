@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorBootstrapDemo", "BlazorBootstrapDemo\BlazorBootstrapDemo.csproj", "{6B8FA2E8-284F-4E4A-81E1-A11CB3CA9AE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syndication", "Syndication\Syndication.csproj", "{A0059B23-8503-4564-8C6A-16963F8EA3B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Syndication", "Syndication\Syndication.csproj", "{A0059B23-8503-4564-8C6A-16963F8EA3B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyndicationConsole", "SyndicationConsole\SyndicationConsole.csproj", "{5F9184C4-E22D-4378-BBDB-4F11C90E86B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyndicationConsole", "SyndicationConsole\SyndicationConsole.csproj", "{5F9184C4-E22D-4378-BBDB-4F11C90E86B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
