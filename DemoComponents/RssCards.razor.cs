@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace BlazorBootstrapDemo.Shared
+namespace DemoComponents
 {
     partial class RssCards
     {
@@ -34,12 +34,12 @@ namespace BlazorBootstrapDemo.Shared
         protected override async Task OnParametersSetAsync()
         {
 
-            if(null == this.Items && !string.IsNullOrEmpty(this.FeedUrl))
+            if (null == this.Items && !string.IsNullOrEmpty(this.FeedUrl))
             {
                 var expires = await this.Storage.GetItemAsync<DateTime?>(ItemsExpireProperty);
                 var items = await this.Storage.GetItemAsync<IEnumerable<RssItem>>(ItemsProperty);
 
-                if(expires.GetValueOrDefault() < DateTime.UtcNow || null == items)
+                if (expires.GetValueOrDefault() < DateTime.UtcNow || null == items)
                 {
                     await this.Storage.SetItemAsync(ItemsExpireProperty, DateTime.UtcNow.AddHours(1));
                     items = await RssItem.LoadAsync(this.FeedUrl, 3, new HttpClient());

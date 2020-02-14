@@ -27,10 +27,16 @@ namespace SyndicationConsole
         {
             var rssUrl = "https://mikaberglund.com/feed/";
             var atomUrl = "https://tulli.fi/tietoa-tullista/uutishuone/-/asset_publisher/vSckabkfdtUg/rss";
+            Feed feed = null;
 
             //var rssFeed = await Feed.LoadAsync(rssUrl);
-            var atomFeed = await Feed.LoadAsync(atomUrl);
+            //var atomFeed = await Feed.LoadAsync(atomUrl);
 
+            feed = await Feed.LoadAsync(rssUrl);
+            foreach(var item in feed.Items)
+            {
+                var meta = await HtmlUtility.ParseMetadataAsync(new Uri(item.Url));
+            }
         }
     }
 }

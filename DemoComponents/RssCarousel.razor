@@ -1,0 +1,50 @@
+﻿@inherits BootstrapComponentBase
+
+<Carousel BackgroundColor="NamedColor.Dark" ShowControls="@(this.Items.Count > 0)" ShowIndicators="@(this.Items.Count > 0)" AutoStart="true" Interval="5000">
+    @if(this.Items.Count > 0)
+    {
+        bool isActive = true;
+        @foreach(var item in this.Items)
+        {
+            <CarouselItem class="@(isActive ? "active": "")">
+                <Card Title="@item.Title" Subtitle="@item.Category" ImageUrl="@item.ImageUrl" Text="@item.Description">
+                    <ImageTemplate>
+                        <Div style="@($"height: 240px; background-position: center; background-size: cover; background-image: url({item.ImageUrl})")">&nbsp;</Div>
+                    </ImageTemplate>
+                    <TitleTemplate>
+                        <CardTitle>
+                            @if (item.Published.HasValue)
+                            {
+                                <small class="text-muted d-block mb-1">@item.Published.Value.ToString("d")</small>
+                            }
+                            @context
+                        </CardTitle>
+                    </TitleTemplate>
+                    <TextTemplate>
+                        <CardText>
+                            @foreach (var tag in item.Tags)
+                            {
+                                <Badge IsPill="true" Color="NamedColor.Info">@tag</Badge>
+                            }
+                            <p>@context</p>
+                        </CardText>
+                    </TextTemplate>
+                    <FooterTemplate>
+                        <CardFooter BackgroundColor="NamedColor.White" class="text-right">
+                            <Anchor Url="@item.Url" IsStretched="true" OpenInNewTab="true" class="btn btn-outline-primary">Read more</Anchor>
+                        </CardFooter>
+                    </FooterTemplate>
+                </Card>
+            </CarouselItem>
+            isActive = false;
+        }
+    }
+    else
+    {
+        <CarouselItem CaptionHeading="Loading...">
+            <CaptionBodyTemplate>
+                <Spinner Type="SpinnerType.Border"></Spinner>
+            </CaptionBodyTemplate>
+        </CarouselItem>
+    }
+</Carousel>

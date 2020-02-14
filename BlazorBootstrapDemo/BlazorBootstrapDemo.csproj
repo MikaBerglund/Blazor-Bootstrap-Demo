@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DemoComponents\DemoComponents.csproj" />
     <ProjectReference Include="..\Syndication\Syndication.csproj" />
   </ItemGroup>
 
