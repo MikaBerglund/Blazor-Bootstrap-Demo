@@ -1,13 +1,13 @@
 ﻿@inherits BootstrapComponentBase
 
-<Carousel BackgroundColor="NamedColor.Dark" ShowControls="@(this.Items.Count > 0)" ShowIndicators="@(this.Items.Count > 0)" AutoStart="true" Interval="5000">
+<Carousel BackgroundColor="NamedColor.Secondary" ShowIndicators="@(this.Items.Count > 0)" AutoStart="true" Interval="5000" PaddingBottom="Spacing.Two" Width="ComponentSize.p100">
     @if(this.Items.Count > 0)
     {
         bool isActive = true;
         @foreach(var item in this.Items)
         {
-            <CarouselItem class="@(isActive ? "active": "")">
-                <Card Title="@item.Title" Subtitle="@item.Category" ImageUrl="@item.ImageUrl" Text="@item.Description">
+            <CarouselItem class="@(isActive ? "active": "")" Width="ComponentSize.p100">
+                <Card Title="@item.Title" Subtitle="@item.Category" ImageUrl="@item.ImageUrl" Text="@item.Description" MarginBottom="Spacing.Five" Width="ComponentSize.p100">
                     <ImageTemplate>
                         <Div style="@($"height: 240px; background-position: center; background-size: cover; background-image: url({item.ImageUrl})")">&nbsp;</Div>
                     </ImageTemplate>
@@ -15,7 +15,9 @@
                         <CardTitle>
                             @if (item.Published.HasValue)
                             {
-                                <small class="text-muted d-block mb-1">@item.Published.Value.ToString("d")</small>
+                                <Div MarginBottom="Spacing.One" TextColor="NamedColor.White50">
+                                    <small>@item.Published.Value.ToString("d")</small>
+                                </Div>
                             }
                             @context
                         </CardTitle>
@@ -26,14 +28,14 @@
                             {
                                 <Badge IsPill="true" Color="NamedColor.Info">@tag</Badge>
                             }
-                            <p>@context</p>
+                            <Paragraph>
+                                @context
+                            </Paragraph>
+                            <Div MarginTop="Spacing.Three" class="text-right">
+                                <Anchor Url="@item.Url" IsStretched="true" OpenInNewTab="true" MarginRight="Spacing.Five" class="btn btn-outline-primary">Read more</Anchor>
+                            </Div>
                         </CardText>
                     </TextTemplate>
-                    <FooterTemplate>
-                        <CardFooter BackgroundColor="NamedColor.White" class="text-right">
-                            <Anchor Url="@item.Url" IsStretched="true" OpenInNewTab="true" class="btn btn-outline-primary">Read more</Anchor>
-                        </CardFooter>
-                    </FooterTemplate>
                 </Card>
             </CarouselItem>
             isActive = false;
@@ -41,7 +43,7 @@
     }
     else
     {
-        <CarouselItem CaptionHeading="Loading...">
+        <CarouselItem CaptionHeading="Loading..." Width="ComponentSize.p100">
             <CaptionBodyTemplate>
                 <Spinner Type="SpinnerType.Border"></Spinner>
             </CaptionBodyTemplate>
