@@ -59,7 +59,6 @@ namespace DemoComponents
             this.ResetItems();
 
             var feed = await Feed.LoadAsync(url);
-            await this.LogInfoAsync("Feed loaded", url, feed);
 
             foreach(var item in feed.Items)
             {
