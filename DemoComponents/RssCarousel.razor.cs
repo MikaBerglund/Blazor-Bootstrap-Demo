@@ -19,9 +19,6 @@ namespace DemoComponents
 
 
         [Parameter]
-        public EventCallback<RssCarousel> OnItemsChanged { get; set; }
-
-        [Parameter]
         public ICollection<WebPageMetadata> Items { get; set; }
 
         private string _FeedUrl;
@@ -67,7 +64,6 @@ namespace DemoComponents
                     var meta = await HtmlUtility.ParseMetadataAsync(new Uri(item.Url));
                     this.Items.Add(meta);
                     this.StateHasChanged();
-                    await this.OnItemsChanged.InvokeAsync(this);
                 }
             }
         }
